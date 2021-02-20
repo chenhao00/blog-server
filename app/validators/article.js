@@ -9,6 +9,6 @@ module.exports = {
     articleTags: Joi.array(),
     way: Joi.number().required(),
     classifyName: Joi.string().required(),
-    classifyId: Joi.string(),
+    classifyId: Joi.string().allow('')
   })
 };

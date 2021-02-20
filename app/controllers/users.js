@@ -57,7 +57,7 @@ class UserCtl {
 		//获取签名
 		const token = jwt.sign(payload, global.config.security.sign, global.config.security.exp);
 		//存到redis
-	 	await store.set(payload.userId, { token, time: Date.parse(new Date()) / 1000, name: params.name });
+	 	await store.set(payload.userId, { token });
 		const loginMsg = {
 			token,
 			userId: repeatUser._id,
