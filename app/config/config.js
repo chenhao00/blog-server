@@ -1,10 +1,10 @@
 module.exports = {
 	//数据库地址
-	database: 'mongodb://localhost/blog',
+	database: 'mongodb://127.0.0.1:27017/blog',
 	//前端请求域名配置
 	configUrl: {
-		adminUrl: 'http://localhost:8082',
-		webUrl: 'http://localhost:8088'
+		adminUrl: 'http://halo-chen.top/admin',
+		webUrl: 'http://halo-chen.top'
 	},
 	//token签名
 	security: {
