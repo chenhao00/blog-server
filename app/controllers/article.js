@@ -62,7 +62,7 @@ class ArticleCtl {
 			params.classifyId = await combineClassify(params);
 		}
 		//设置创建时间和更新时间
-		params.createTime = Date.parse(new Date()) / 1000
+		params.createTime = Date.parse(new Date()) / 1000;
 		params.updateTime = Date.parse(new Date()) / 1000;
 		await new Article(params).save(async function(err, doc) {
 			//把文章添加到新的分类
@@ -139,7 +139,9 @@ class ArticleCtl {
 	}
 	//热门博客排行
 	async hot(ctx) {
-		const list = await store.get('') || [];
+		const hot = await Article.find({})
+			.sort({updateTime: 1});
+		const list = await store.get('') || hot;
 		ctx.body = global.suc(0, list.slice(0, 10), '获取博客排行成功');
 	}
 	//最新博客排行
